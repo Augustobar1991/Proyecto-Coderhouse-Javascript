@@ -7,23 +7,22 @@ constructor(mail, password){
 }
 function Registrarte(){
 
-    let mail = prompt("ingrese el email de usuario");
-
+     let mail = prompt("ingrese el email de usuario");
     if(mail === "" || mail === null) {
-        alert("Ingrese un mail");
-        return false;
+      Swal.fire({icon: 'warning', title: 'Ingrese un Email'})
+      return false;
     }
     else {
         var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         if(!re.test(mail)){
-            alert("Formato de Email invalido");
-            return false;
+          Swal.fire({icon: 'warning', title: 'Formato de Email invalido'});
+          return false;
         }
     }
     let passwords = prompt("Ingrese el password");
     
     if (passwords ==="" || passwords === null ){
-        alert("ingrese una contraseña");
+      Swal.fire({icon: 'warning', title: 'Ingrese una contraseña'});
         return false;
     } 
     else{
@@ -33,11 +32,7 @@ function Registrarte(){
  
 console.log(array);
 }
-function hideFunc() {
-  const truck_modal = document.querySelector('#modalLoginForm');
-  const modal = bootstrap.Modal.getInstance(truck_modal);    
-  modal.hide();
-}
+
 let cont=0;
 function Login(){ 
     let mensaje = [];
@@ -63,12 +58,14 @@ function Login(){
               }
             }
             else{
-                mensaje.push(`Contraseña incorrecta, le quedan ${2-cont} intentos mas`);
+                mensaje.push(`Contraseña incorrecta`);
+                mensaje.push(`le quedan ${2-cont} intentos mas`);
                 cont++;
             }
         } 
         else{
-            mensaje.push(`Usuario incorrecto, le quedan ${2-cont} intentos mas`);
+            mensaje.push(`Email incorrecto`);
+            mensaje.push(`le quedan ${2-cont} intentos mas`);
             cont++;
         }
       }
@@ -76,7 +73,7 @@ function Login(){
         mensaje.push(`Usuario bloqueado`);
       }    
       if (mensaje.length > 0)
-        {alert(mensaje.join("\n"));}
+      {Swal.fire({icon: 'warning', title: mensaje.join("\n")})}
     } 
     catch(err) {
         if (email === "" || email === null) 
@@ -84,7 +81,7 @@ function Login(){
         if (password === "" || password === null) 
             {mensaje.push("El campo Clave no puede estar vacio");}
         if (mensaje.length > 0)
-        {alert(mensaje.join("\n"));} 
+        {Swal.fire({icon: 'warning', title: mensaje.join("\n")})} 
   }
 }
 // mas adelante se volverá a agregar esta funcion
@@ -122,9 +119,6 @@ addToShoppingCartButtons.forEach((addToCartButton) => {
   addToCartButton.addEventListener('click', addToCartClicked);
 });
 
-//const comprarButton = document.querySelector('.comprarButton');
-//comprarButton.addEventListener('click', Login);
-
 const shoppingCartItemsContainer = document.querySelector(
   '.shoppingCartItemsContainer'
 );
@@ -146,13 +140,21 @@ function addItemToShoppingCart(itemTitle, itemPrice, itemImage) {
   );
   for (let i = 0; i < elementsTitle.length; i++) {
     if (elementsTitle[i].innerText === itemTitle) {
-      let elementQuantity = elementsTitle[
-        i
-      ].parentElement.parentElement.parentElement.querySelector(
-        '.shoppingCartItemQuantity'
-      );
+      let elementQuantity = elementsTitle[i]
+                            .parentElement
+                            .parentElement
+                            .parentElement
+                            .querySelector('.shoppingCartItemQuantity');
       elementQuantity.value++;
-      $('.toast').toast('show');
+      //$('.toast').toast('show');
+      Swal.fire({
+        position: 'center',
+        icon: 'success',
+        titleText: 'Elemento en el carrito',
+        text: 'Se aumentó correctamente la cantidad',
+        showConfirmButton: false,
+        timer: 1500
+      })
       updateShoppingCartTotal();
       return;
     }
@@ -214,7 +216,7 @@ function updateShoppingCartTotal() {
     const shoppingCartItemQuantity = Number(
       shoppingCartItemQuantityElement.value
     );
-    total = total + shoppingCartItemPrice * shoppingCartItemQuantity;
+    total =+ shoppingCartItemPrice * shoppingCartItemQuantity;
   });
   shoppingCartTotal.innerHTML = `$${new Intl.NumberFormat().format(total)}`;
   

@@ -18,18 +18,12 @@
     
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
-    <!-- <link rel="stylesheet" href="node_modules/mdbootstrap/css/bootstrap.min.css"> 
-    <link rel="stylesheet" href="node_modules/mdbootstrap/css/mdb.min.css">
-    <link rel="stylesheet" href="node_modules/mdbootstrap/css/style.css">-->
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/5.0.0/mdb.min.css" />
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" >
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" >
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
-    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous"> -->
-        <link href="./css/style.css" rel="stylesheet">
+
+    <link href="./css/style.css" rel="stylesheet">
 </head>
 
 <body>
@@ -187,35 +181,23 @@
                     <div class="shopping-cart-total d-flex align-items-center">
                         <p class="mb-0 total">Total</p>
                         <p class="ml-4 mb-0 price shoppingCartTotal">$0</p>
-                        <div class="toast ml-auto bg-info" role="alert" aria-live="assertive" aria-atomic="true"
-                            data-delay="2000">
-                            <div class="toast-header">
-                                <span>✅</span>
-                                <strong class="mr-auto ml-1 text-secondary">Elemento en el carrito</strong>
-                                <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="toast-body text-white">
-                                Se aumentó correctamente la cantidad
-                            </div>
-                        </div>
-                        <button class="btn btn-success ml-auto comprarButton" type="button" data-toggle="modal"
-                            data-target="#modalLoginForm">Comprar</button>
+                        <button value="comprarButton" id="comprarButton" class="btn btn-success ml-auto comprarButton" type="button" data-toggle="modal"
+                             data-target="#modalLoginForm">Comprar</button>
                     </div>
                 </div>
             </div>
 
         <!-- START SIGN IN -->
-        <div class="modal fade" id="modalLoginForm" tabindex="-1" aria-labelledby="myModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog" role="document">
+        <div class="modal fade" id="modalLoginForm" tabindex="-1" aria-labelledby="myModalLabel">
+            <!-- aria-hidden="true" -->
+            <div class="modal-dialog modal-dialog-centered" role="document">
               <div class="modal-content">
                 <div class="modal-header text-center">
                     <h4 class="modal-title w-100 font-weight-bold">Registrate</h4>
                     <button type="button" value="botonclose" id="botonclose" class="close item-button btn btn-danger" data-dismiss="modal" aria-label="Close"> 
-                      <span aria-hidden="true">&times;</span>
-                    </button>
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    <!-- <button type="button" class="btn-close btn-danger btn-close-white" data-dismiss="modal" aria-label="Close"></button> -->
                   </div>
                   <div>
                     <div class="mail1 form-outline mb-4 mt-4 col-10">
@@ -228,14 +210,14 @@
                       <label class="form-label" for="form2Example2">Contraseña</label>
                     </div>
                     <div class="mb-4">
-                      <!-- a futuro usar en localstorage o sessionStorage
+                      <!-- a futuro usar en localstorage o sessionStorage -->
 
                     <div class="col d-flex justify-content-center">
                         <div class="form-check">
-                          <input class="form-check-input" type="checkbox" value="" id="form2Example34" checked />
-                          <label class="form-check-label" for="form2Example34"> Recuerdame </label>
+                          <input class="form-check-input" type="checkbox" value="" id="miElementoCheckbox" checked />
+                          <label class="form-check-label" for="miElementoCheckbox"> Recuerdame </label>
                         </div>
-                    </div>-->
+                    </div>
 
                     <!-- Register buttons -->
                     <div class="text-center">
@@ -247,28 +229,26 @@
               </div>
             </div>
         </div>
-          
-            <!-- START MODAL COMPRA -->
-            <div class="modal fade" id="comprarModal" tabindex="-1" aria-labelledby="comprarModalLabel"
-                aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="comprarModalLabel">Gracias por su compra</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <p>Pronto recibirá su pedido</p>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                        </div>
-                    </div>
+      </div>
+        <!-- START MODAL COMPRA -->
+        <div class="modal fade" id="comprarModal" tabindex="-1" aria-labelledby="comprarModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="comprarModalLabel">Gracias por su compra</h5>
+                    <button type="button" value="botonclose" id="botonclose" class="close item-button btn btn-danger" data-dismiss="modal" aria-label="Close"> 
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Pronto recibirá su pedido</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
                 </div>
             </div>
         </div>
+    </div>
     </section>
 
     <!-- START FOOTER -->
@@ -306,6 +286,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
         integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
         crossorigin="anonymous"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
     <script src="./javascript/tienda.js"></script>
 
   </body>
