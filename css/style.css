@@ -246,6 +246,11 @@ body {
   border: 2px solid rgba(255, 0, 0);
 }
 
+.swal2-html-container{
+  display: flex!important;
+  justify-content: center!important;
+}
+
 /* -------footer------- */
 .container {
   max-width: 100%;

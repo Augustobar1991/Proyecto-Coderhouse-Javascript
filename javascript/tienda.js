@@ -1,3 +1,5 @@
+AOS.init();
+
 const array = [];
 class User{
 constructor(mail, password){
@@ -5,32 +7,46 @@ constructor(mail, password){
     this.password = password;
     }
 }
-function Registrarte(){
-
-     let mail = prompt("ingrese el email de usuario");
-    if(mail === "" || mail === null) {
-      Swal.fire({icon: 'warning', title: 'Ingrese un Email'})
+function modalRegisterForm() {
+  hideModal();
+  $('#registrarModal').modal('show');
+  let botonclose = document.getElementById("botoncloseReg");
+  botonclose.addEventListener("click", hideModalRegister); 
+  let botonSubmit = document.getElementById("bottonSubmit");
+  botonSubmit.addEventListener("click", modalRegisterSesion); 
+}
+function modalRegisterSesion() {
+  let emailReg=document.getElementById("formMail").value;
+  let passwordReg1=document.getElementById("formPass1").value;
+  let passwordReg2=document.getElementById("formPass2").value;
+  let re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    if(!re.test(emailReg)) {
+      Swal.fire({icon: 'warning', title: 'Ingrese un Email valido'})
       return false;
     }
-    else {
-        var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-        if(!re.test(mail)){
-          Swal.fire({icon: 'warning', title: 'Formato de Email invalido'});
-          return false;
-        }
-    }
-    let passwords = prompt("Ingrese el password");
-    
-    if (passwords ==="" || passwords === null ){
-      Swal.fire({icon: 'warning', title: 'Ingrese una contraseña'});
-        return false;
-    } 
     else{
-        let obj = new User(mail, passwords);
+      if (passwordReg1 ==="" || passwordReg1 === null){
+        Swal.fire({icon: 'warning', title: 'Ingrese una Contraseña'});
+        return false;
+      }
+      else if(passwordReg1 !== passwordReg2){
+        Swal.fire({icon: 'warning', title: 'Contraseña distinta'});
+        return false;
+      }
+      else {
+        let obj = new User(emailReg, passwordReg1);
         array.push(obj);
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          titleText: 'Bienvenido',
+          text: 'Usuario agregado',
+          timer: 3000});
+        hideModalRegister();
+        $('#modalLoginForm').modal('show');
     }
- 
-console.log(array);
+  }
+  console.log(array);
 }
 
 let cont=0;
@@ -42,86 +58,79 @@ function Login(){
     let nom = array.find(mail => mail.mail);
 
       if(cont<3){
-        var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        let re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         if(!re.test(email)){
             mensaje.push(`Formato de Email invalido`);
         }
         else if (nom.mail===email){
             if(nom.password===password && password!=''){ 
-              if (shoppingCartItemsContainer.innerHTML != '') { 
-                cont = 0;
-                  $('#modalLoginForm').modal('hide'); 
-                  $('body').removeClass('modal-open'); 
-                  $('.modal-backdrop').remove();
-                  $('#comprarModal').modal('show');
-                  comprarButtonClicked();
-              }
+              cont = 0;
+              hideModal();
+              Swal.fire({
+                position: 'center',
+                icon: 'success',
+                titleText: 'Gracias por su compra',
+                text: 'Pronto recibirá su pedido',
+                timer: 3000});
+              comprarButtonClicked();
             }
             else{
-                mensaje.push(`Contraseña incorrecta`);
-                mensaje.push(`le quedan ${2-cont} intentos mas`);
-                cont++;
+              mensaje.push(`Contraseña incorrecta`);
+              mensaje.push(`le quedan ${2-cont} intentos mas`);
+              cont++;
             }
         } 
         else{
-            mensaje.push(`Email incorrecto`);
-            mensaje.push(`le quedan ${2-cont} intentos mas`);
-            cont++;
+          mensaje.push(`Email incorrecto`);
+          mensaje.push(`le quedan ${2-cont} intentos mas`);
+          cont++;
         }
       }
       else{
         mensaje.push(`Usuario bloqueado`);
       }    
-      if (mensaje.length > 0)
-      {Swal.fire({icon: 'warning', title: mensaje.join("\n")})}
+      input.value <= 0 ? (input.value = 1) : null;
+      mensaje.length > 0 ? Swal.fire({icon: 'warning', title: mensaje.join("\n")}) : null;
     } 
     catch(err) {
         if (email === "" || email === null) 
             {mensaje.push("El campo Email no puede estar vacio");}
         if (password === "" || password === null) 
             {mensaje.push("El campo Clave no puede estar vacio");}
-        if (mensaje.length > 0)
-        {Swal.fire({icon: 'warning', title: mensaje.join("\n")})} 
-  }
+        mensaje.length > 0 ? Swal.fire({icon: 'warning', title: mensaje.join("\n")}) : null;
+    }
 }
-// mas adelante se volverá a agregar esta funcion
-// function BuscaUsuario(){
-//     let admin = prompt(`Ingresa el nombre de usuario de administrador`);
-//     let contraseña = prompt(`Ingresa la contraseña de administrador`);
-//     if (admin==="admin" && contraseña==1234)
-//     {
-//         let usuario1 = prompt("Ingrese el usuario a encontrar");
-//         let nom = array.find(name => name.nombre===usuario1);
-//         try {
-//             if (nom.nombre==usuario1){
-//                 alert("El usuario existe y tiene como contraseña: " + nom.password);
-//             }
-//             else{
-//                 alert("El usuario no existe");
-//             }
-//         } 
-//         catch(err) {alert("no se encontro nombre");}
-//     }
-//     else{
-//         alert("No eres administrador");
-//     }
-// }
-// let botonBuscaUsuario = document.getElementById("BuscaUsuario");
-// botonBuscaUsuario.addEventListener("click",BuscaUsuario);
+
+function hideModal() {
+  $('#modalLoginForm').modal('hide');
+}
+function hideModalRegister() {
+  $('#registrarModal').modal('hide');
+}
+
+function modalRegister() {
+  try {(document.querySelector('.shoppingCartItemQuantity').value > 0) 
+    $('#modalLoginForm').modal('show');
+    let botonclose = document.getElementById("botonclose");
+    botonclose.addEventListener("click", hideModal); 
+  }
+  catch{Swal.fire({icon: 'warning', title: 'Elija un item a comprar'})}
+}
 
 let botonEnter = document.getElementById("Entrar");
 botonEnter.addEventListener("click",Login);
 let botonRegistrarte = document.getElementById("Registrarte");
-botonRegistrarte.addEventListener("click",Registrarte);
+botonRegistrarte.addEventListener("click",modalRegisterForm);
+
+const comprarButton = document.getElementById('comprarButton');
+comprarButton.addEventListener('click', modalRegister);
 
 const addToShoppingCartButtons = document.querySelectorAll('.addToCart');
 addToShoppingCartButtons.forEach((addToCartButton) => {
   addToCartButton.addEventListener('click', addToCartClicked);
 });
 
-const shoppingCartItemsContainer = document.querySelector(
-  '.shoppingCartItemsContainer'
-);
+const shoppingCartItemsContainer = document.querySelector('.shoppingCartItemsContainer');
 
 function addToCartClicked(event) {
   const button = event.target;
@@ -135,26 +144,23 @@ function addToCartClicked(event) {
 }
 
 function addItemToShoppingCart(itemTitle, itemPrice, itemImage) {
-  const elementsTitle = shoppingCartItemsContainer.getElementsByClassName(
-    'shoppingCartItemTitle'
-  );
+  const elementsTitle = shoppingCartItemsContainer.getElementsByClassName('shoppingCartItemTitle');
   for (let i = 0; i < elementsTitle.length; i++) {
     if (elementsTitle[i].innerText === itemTitle) {
       let elementQuantity = elementsTitle[i]
-                            .parentElement
-                            .parentElement
-                            .parentElement
-                            .querySelector('.shoppingCartItemQuantity');
+                                  .parentElement
+                                  .parentElement
+                                  .parentElement
+                                  .querySelector('.shoppingCartItemQuantity');
       elementQuantity.value++;
-      //$('.toast').toast('show');
       Swal.fire({
         position: 'center',
         icon: 'success',
-        titleText: 'Elemento en el carrito',
+        titleText: 'Elemento sumado en el carrito',
         text: 'Se aumentó correctamente la cantidad',
         showConfirmButton: false,
         timer: 1500
-      })
+      });
       updateShoppingCartTotal();
       return;
     }
@@ -216,10 +222,9 @@ function updateShoppingCartTotal() {
     const shoppingCartItemQuantity = Number(
       shoppingCartItemQuantityElement.value
     );
-    total =+ shoppingCartItemPrice * shoppingCartItemQuantity;
+    total = total + shoppingCartItemPrice * shoppingCartItemQuantity;
   });
   shoppingCartTotal.innerHTML = `$${new Intl.NumberFormat().format(total)}`;
-  
 }
 
 function removeShoppingCartItem(event) {

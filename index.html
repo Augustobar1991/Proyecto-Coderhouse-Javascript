@@ -16,12 +16,14 @@
 
     <title>La Casa de las llantas desde 1972 en Concordia</title>
     
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" >
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/5.0.0/mdb.min.css" />
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" >
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" >
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    
 
     <link href="./css/style.css" rel="stylesheet">
 </head>
@@ -68,8 +70,7 @@
         <div class="container">
             <div class="items">
                 <div class="row">
-
-                    <div class="col-12 col-md-6">
+                    <div class="col-12 col-md-6" data-aos="zoom-in" data-aos-duration="2000">
                         <div class="item shadow mb-4">
                             <h3 class="item-title">Llantas 18 Vw Vento</h3>
                             <img class="item-image d-flex" src="./multimedia/llantas/llanta-2/llanta2.gif">
@@ -80,7 +81,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-12 col-md-6">
+                    <div class="col-12 col-md-6" data-aos="zoom-in" data-aos-duration="2000">
                         <div class="item shadow mb-4">
                             <h3 class="item-title">Llantas 17 Honda Civic</h3>
 
@@ -95,7 +96,7 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-12 col-md-6">
+                    <div class="col-12 col-md-6" data-aos="zoom-in" data-aos-duration="2000">
                         <div class="item shadow mb-4">
                             <h3 class="item-title">Llantas 17 Fiat Bravo</h3>
 
@@ -107,7 +108,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-12 col-md-6">
+                    <div class="col-12 col-md-6" data-aos="zoom-in" data-aos-duration="2000">
                         <div class="item shadow mb-4">
                             <h3 class="item-title">Llantas 16 Ford Fiesta</h3>
 
@@ -121,7 +122,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-12 col-md-6">
+                    <div class="col-12 col-md-6" data-aos="zoom-in" data-aos-duration="2000">
                         <div class="item shadow mb-4">
                             <h3 class="item-title">Llantas 16 Peugeot 208</h3>
 
@@ -132,7 +133,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-12 col-md-6">
+                    <div class="col-12 col-md-6" data-aos="zoom-in" data-aos-duration="2000">
                         <div class="item shadow mb-4">
                             <h3 class="item-title">Llantas 16 Peugeot 207</h3>
 
@@ -151,21 +152,21 @@
     <!-- START SECTION SHOPPING CART -->
     <section class="shopping-cart">
         <div class="container">
-            <h1 class="text-center">CARRITO</h1>
+            <h1 class="text-center" data-aos="fade-right" data-aos-duration="2000">CARRITO</h1>
             <hr>
             <div class="row">
                 <div class="col-6">
-                    <div class="shopping-cart-header">
+                    <div class="shopping-cart-header" data-aos="fade-up" data-aos-duration="500">
                         <h6>Producto</h6>
                     </div>
                 </div>
                 <div class="col-2">
-                    <div class="shopping-cart-header">
+                    <div class="shopping-cart-header" data-aos="fade-up" data-aos-duration="1000">
                         <h6 class="text-truncate">Precio</h6>
                     </div>
                 </div>
                 <div class="col-4">
-                    <div class="shopping-cart-header">
+                    <div class="shopping-cart-header" data-aos="fade-up" data-aos-duration="1500">
                         <h6>Cantidad</h6>
                     </div>
                 </div>
@@ -179,76 +180,84 @@
             <div class="row">
                 <div class="col-12">
                     <div class="shopping-cart-total d-flex align-items-center">
-                        <p class="mb-0 total">Total</p>
-                        <p class="ml-4 mb-0 price shoppingCartTotal">$0</p>
-                        <button value="comprarButton" id="comprarButton" class="btn btn-success ml-auto comprarButton" type="button" data-toggle="modal"
-                             data-target="#modalLoginForm">Comprar</button>
+                        <p class="mb-0 total" data-aos="zoom-in-up" data-aos-duration="500">Total</p>
+                        <p class="ml-4 mb-0 price shoppingCartTotal" data-aos="zoom-in-up" data-aos-duration="1000">$0</p>
+                        <button data-aos="zoom-in-up" data-aos-duration="1500" value="comprarButton" id="comprarButton" class="btn btn-success ml-auto comprarButton" type="button" data-toggle="modal"
+                             >Comprar</button>
                     </div>
                 </div>
             </div>
 
         <!-- START SIGN IN -->
         <div class="modal fade" id="modalLoginForm" tabindex="-1" aria-labelledby="myModalLabel">
-            <!-- aria-hidden="true" -->
-            <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-dialog modal-dialog-centered" role="document">
               <div class="modal-content">
                 <div class="modal-header text-center">
-                    <h4 class="modal-title w-100 font-weight-bold">Registrate</h4>
+                    <h4 class="modal-title w-100 font-weight-bold">Iniciar sesion</h4>
                     <button type="button" value="botonclose" id="botonclose" class="close item-button btn btn-danger" data-dismiss="modal" aria-label="Close"> 
                         <span aria-hidden="true">&times;</span>
                       </button>
-                    <!-- <button type="button" class="btn-close btn-danger btn-close-white" data-dismiss="modal" aria-label="Close"></button> -->
-                  </div>
-                  <div>
+                </div>
+                <div>
                     <div class="mail1 form-outline mb-4 mt-4 col-10">
-                      <input name="email" id="email" type="email" id="form2Example1" class="form-control" />
-                      <label class="form-label" for="form2Example1">Email</label>
-
+                        <input name="email" id="email" type="email" id="form2Example1" class="form-control" />
+                        <label class="form-label" for="form2Example1">Email</label>
                     </div>
                     <div class="contr1 form-outline mb-4 col-10">
-                      <input name="pass" pass id="pass" type="password" id="form2Example2" class="form-control" />
-                      <label class="form-label" for="form2Example2">Contraseña</label>
+                        <input name="pass" id="pass" type="password" id="form2Example2" class="form-control" />
+                        <label class="form-label" for="form2Example2">Contraseña</label>
                     </div>
                     <div class="mb-4">
-                      <!-- a futuro usar en localstorage o sessionStorage -->
-
-                    <div class="col d-flex justify-content-center">
-                        <div class="form-check">
-                          <input class="form-check-input" type="checkbox" value="" id="miElementoCheckbox" checked />
-                          <label class="form-check-label" for="miElementoCheckbox"> Recuerdame </label>
-                        </div>
-                    </div>
-
                     <!-- Register buttons -->
                     <div class="text-center">
                         <button value="Entrar" id="Entrar" class="btn btn-primary mb-3">Entrar</button>
-                      <p>No eres miembro? </p>
-                      <button value="Registrarte" id="Registrarte" class="btn btn-dark">Registrate</button>
+                        <p>No eres miembro? </p>
+                        <button value="Registrarte" id="Registrarte" class="btn btn-dark">Registrate</button>
                     </div>
                 </div>
               </div>
             </div>
+          </div>
         </div>
-      </div>
+
         <!-- START MODAL COMPRA -->
-        <div class="modal fade" id="comprarModal" tabindex="-1" aria-labelledby="comprarModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="comprarModalLabel">Gracias por su compra</h5>
-                    <button type="button" value="botonclose" id="botonclose" class="close item-button btn btn-danger" data-dismiss="modal" aria-label="Close"> 
-                    <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <p>Pronto recibirá su pedido</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        <div class="modal fade" id="registrarModal" tabindex="-1" aria-labelledby="registrarModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="registrarModalLabel">Regístrate</h5>
+                        <button type="button" value="botoncloseReg" id="botoncloseReg" class="close item-button btn btn-danger" data-dismiss="modal" aria-label="Close"> 
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="mail1 form-outline mb-4 mt-4 col-10">
+                                <input type="email" id="formMail" class="form-control" />
+                                <label class="form-label" for="form2Example1">Email</label>
+                            </div>
+                            <div class="contr1 form-outline mb-4 col-10">
+                                <input type="password" id="formPass1" class="form-control" />
+                                <label class="form-label" for="form2Example2">Contraseña</label>
+                            </div>
+                            <div class="contr1 form-outline mb-4 col-10">
+                                <input type="password" id="formPass2" class="form-control" />
+                                <label class="form-label" for="form2Example2">Validar Contraseña</label>
+                            </div>
+                            <!-- a futuro usar en localstorage o sessionStorage -->
+                            <!-- <div class="col d-flex justify-content-center">
+                                <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="miElementoCheckbox" checked />
+                                <label class="form-check-label" for="miElementoCheckbox">Recuerdame</label>
+                                </div>
+                            </div> -->
+                            <button type="button" id="bottonSubmit" class="btn btn-primary">Submit</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+
     </section>
 
     <!-- START FOOTER -->
@@ -262,7 +271,6 @@
           </a>
           <a class="fab fa-instagram d-flex justify-content-center"  href="https://www.instagram.com/lacasadelasllantas/" target="_blank">
           </a>
-    
         </div>
         <div class="containerp">
           <p  class="containerSub">La Casa de las Lantas © 2022 | Marca registrada | Políticas de Privacidad</p>
@@ -270,23 +278,14 @@
       </footer>
     <!-- END FOOTER -->
 
-
-
-
     <!-- SCRIPTS -->
-    <script
-    type="text/javascript"
-    src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/5.0.0/mdb.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
-        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
-        crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/5.0.0/mdb.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
     <script src="./javascript/tienda.js"></script>
 
   </body>
