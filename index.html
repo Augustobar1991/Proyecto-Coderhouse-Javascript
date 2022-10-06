@@ -18,13 +18,12 @@
     
     <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" >
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" >
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/5.0.0/mdb.min.css" />
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" >
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" >
     
-
     <link href="./css/style.css" rel="stylesheet">
 </head>
 
@@ -69,82 +68,7 @@
     <section class="store">
         <div class="container">
             <div class="items">
-                <div class="row">
-                    <div class="col-12 col-md-6" data-aos="zoom-in" data-aos-duration="2000">
-                        <div class="item shadow mb-4">
-                            <h3 class="item-title">Llantas 18 Vw Vento</h3>
-                            <img class="item-image d-flex" src="./multimedia/llantas/llanta-2/llanta2.gif">
-
-                            <div class="item-details">
-                                <h4 class="item-price">$55000</h4>
-                                <button class="item-button btn btn-primary addToCart">Añadir</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-6" data-aos="zoom-in" data-aos-duration="2000">
-                        <div class="item shadow mb-4">
-                            <h3 class="item-title">Llantas 17 Honda Civic</h3>
-
-                            <img class="item-image d-flex" src="./multimedia/llantas/llanta-1/llanta1.gif">
-
-                            <div class="item-details">
-                                <h4 class="item-price">$50000</h4>
-                                <button class="item-button btn btn-primary addToCart">Añadir</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-12 col-md-6" data-aos="zoom-in" data-aos-duration="2000">
-                        <div class="item shadow mb-4">
-                            <h3 class="item-title">Llantas 17 Fiat Bravo</h3>
-
-                            <img class="item-image d-flex" src="./multimedia/llantas/llanta-6/llanta6.gif">
-
-                            <div class="item-details">
-                                <h4 class="item-price">$50000</h4>
-                                <button class="item-button btn btn-primary addToCart">Añadir</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-6" data-aos="zoom-in" data-aos-duration="2000">
-                        <div class="item shadow mb-4">
-                            <h3 class="item-title">Llantas 16 Ford Fiesta</h3>
-
-                            <img class="item-image d-flex" src="./multimedia/llantas/llanta-3/llanta3.gif">
-
-                            <div class="item-details">
-                                <h4 class="item-price">$47000</h4>
-                                <button class="item-button btn btn-primary addToCart">Añadir</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-12 col-md-6" data-aos="zoom-in" data-aos-duration="2000">
-                        <div class="item shadow mb-4">
-                            <h3 class="item-title">Llantas 16 Peugeot 208</h3>
-
-                            <img class="item-image d-flex" src="./multimedia/llantas/llanta-4/llanta4.jpg">
-                            <div class="item-details">
-                                <h4 class="item-price">$48000</h4>
-                                <button class="item-button btn btn-primary addToCart">Añadir</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-6" data-aos="zoom-in" data-aos-duration="2000">
-                        <div class="item shadow mb-4">
-                            <h3 class="item-title">Llantas 16 Peugeot 207</h3>
-
-                            <img class="item-image d-flex" src="./multimedia/llantas/llanta-5/llanta5.jpg">
-                            <div class="item-details">
-                                <h4 class="item-price">$47500</h4>
-                                <button class="item-button btn btn-primary addToCart">Añadir</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <div id="contenedor"></div>
             </div>
         </div>
     </section>
@@ -245,12 +169,12 @@
                                 <label class="form-label" for="form2Example2">Validar Contraseña</label>
                             </div>
                             <!-- a futuro usar en localstorage o sessionStorage -->
-                            <!-- <div class="col d-flex justify-content-center">
+                            <div class="col d-flex justify-content-center">
                                 <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="miElementoCheckbox" checked />
-                                <label class="form-check-label" for="miElementoCheckbox">Recuerdame</label>
+                                    <input class="form-check-input" type="checkbox" value="miElementoCheckbox" id="miElementoCheckbox" checked />
+                                    <label class="form-check-label" for="miElementoCheckbox">Recuerdame</label>
                                 </div>
-                            </div> -->
+                            </div>
                             <button type="button" id="bottonSubmit" class="btn btn-primary">Submit</button>
                         </form>
                     </div>
@@ -287,7 +211,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
     <script src="./javascript/tienda.js"></script>
-
+    <script src="./javascript/registro.js"></script>
   </body>
 
 </html>
