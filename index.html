@@ -12,30 +12,31 @@
 
 
     <!-- favicon -->
-    <link rel="icon" type="image/png" href="./multimedia/image/favicon.png">
+    <link rel="icon" type="image/png" href="multimedia/image/favicon.png">
 
     <title>La Casa de las llantas desde 1972 en Concordia</title>
-    
-    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" >
+
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" >
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/5.0.0/mdb.min.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" >
-    
-    <link href="./css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css">
+    <link href="./css/JS.css" rel="stylesheet">
+    <link href="./css/web.css" rel="stylesheet">
+
+
 </head>
 
 <body>
 
-    <header class="header1">
+    <header>
         <a href="index.html">
             <img class="cabeceraIcon" src="multimedia/image/icon.png" alt="Icono de cabecera de la casa de las llantas">
         </a>
-        <input type="checkbox" id="menu-bar1">
-        <label for="menu-bar1">Menu</label>
-        <nav class="navbar1">
+        <input type="checkbox" id="menu-bar">
+        <label for="menu-bar">Menu</label>
+        <nav class="navbar">
             <ul class="cabecera__lista">
                 <li><a href="index.html">Inicio</a></li>
                 <li><a href="#automotores">Automotores</a>
@@ -49,13 +50,8 @@
                 <li><a href="#tallermecanico">Taller Mecanico</a></li>
                 <li><a href="#llantas">Llantas</a>
                     <ul class="cabecera__sublista">
-                    <li><a href="#ReparacionDeLlantas">Reparacion De Llantas</a></li>
-                    <li><a href="#ventaDeLlantas">Venta De Llantas</a>
-                      <ul class="cabecera__sublista_sublista">
-                        <li><a href="#llanta-18">Llantas 18</a></li>
-                        <li><a href="#llanta-17">Llantas 17</a></li>
-                        <li><a href="#llanta-16">Llantas 16</a></li>
-                      </ul>
+                        <li><a href="#ReparacionDeLlantas">Reparacion De Llantas</a></li>
+                        <li><a href="./carrito.html">Venta De Llantas</a>
                     </li>
                     </ul>
                 </li>
@@ -63,155 +59,331 @@
             </ul>
         </nav>
       </header>
-
-    <!-- START SECTION STORE -->
-    <section class="store">
-        <div class="container">
-            <div class="items">
-                <div id="contenedor"></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- START SECTION SHOPPING CART -->
-    <section class="shopping-cart">
-        <div class="container">
-            <h1 class="text-center" data-aos="fade-right" data-aos-duration="2000">CARRITO</h1>
-            <hr>
-            <div class="row">
-                <div class="col-6">
-                    <div class="shopping-cart-header" data-aos="fade-up" data-aos-duration="500">
-                        <h6>Producto</h6>
-                    </div>
-                </div>
-                <div class="col-2">
-                    <div class="shopping-cart-header" data-aos="fade-up" data-aos-duration="1000">
-                        <h6 class="text-truncate">Precio</h6>
-                    </div>
-                </div>
-                <div class="col-4">
-                    <div class="shopping-cart-header" data-aos="fade-up" data-aos-duration="1500">
-                        <h6>Cantidad</h6>
-                    </div>
-                </div>
-            </div>
-
-            <!-- ? START SHOPPING CART ITEMS -->
-            <div class="shopping-cart-items shoppingCartItemsContainer">
-            </div>
-
-            <!-- START TOTAL -->
-            <div class="row">
-                <div class="col-12">
-                    <div class="shopping-cart-total d-flex align-items-center">
-                        <p class="mb-0 total" data-aos="zoom-in-up" data-aos-duration="500">Total</p>
-                        <p class="ml-4 mb-0 price shoppingCartTotal" data-aos="zoom-in-up" data-aos-duration="1000">$0</p>
-                        <button data-aos="zoom-in-up" data-aos-duration="1500" value="comprarButton" id="comprarButton" class="btn btn-success ml-auto comprarButton" type="button" data-toggle="modal"
-                             >Comprar</button>
-                    </div>
-                </div>
-            </div>
-
-        <!-- START SIGN IN -->
-        <div class="modal fade" id="modalLoginForm" tabindex="-1" aria-labelledby="myModalLabel">
-          <div class="modal-dialog modal-dialog-centered" role="document">
-              <div class="modal-content">
-                <div class="modal-header text-center">
-                    <h4 class="modal-title w-100 font-weight-bold">Iniciar sesion</h4>
-                    <button type="button" value="botonclose" id="botonclose" class="close item-button btn btn-danger" data-dismiss="modal" aria-label="Close"> 
-                        <span aria-hidden="true">&times;</span>
-                      </button>
-                </div>
-                <div>
-                    <div class="mail1 form-outline mb-4 mt-4 col-10">
-                        <input name="email" id="email" type="email" id="form2Example1" class="form-control" />
-                        <label class="form-label" for="form2Example1">Email</label>
-                    </div>
-                    <div class="contr1 form-outline mb-4 col-10">
-                        <input name="pass" id="pass" type="password" id="form2Example2" class="form-control" />
-                        <label class="form-label" for="form2Example2">Contraseña</label>
-                    </div>
-                    <div class="mb-4">
-                    <!-- Register buttons -->
-                    <div class="text-center">
-                        <button value="Entrar" id="Entrar" class="btn btn-primary mb-3">Entrar</button>
-                        <p>No eres miembro? </p>
-                        <button value="Registrarte" id="Registrarte" class="btn btn-dark">Registrate</button>
-                    </div>
+      <main role="main" id="main">
+        <div id="carouselExampleDark" class="carousel carousel-dark slide " data-bs-ride="carousel" >
+          <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="3" aria-label="Slide 4"></button>
+          </div>
+          <div class="carousel-inner">
+  
+            <div class="carousel-item active carousel-otro" data-bs-interval="10000">
+              <img src="multimedia/image/banner-1.jpg" alt="banner 1 la casa de las llantas">
+              <div class="container">
+                <div class="carousel-caption text-start carousel-texto">
+                  <img src="multimedia/image/icon.png"  alt="icono.de.la.casa.de.las.llantas"></img>
+                  <h4>Contamos con gran experiencia</h4><h4>Desde 1972 al servicio de nuestros clientes</h4>
+                  <a class="btn btn-lg btn-primary" href="#contacto">Contactanos</a>
                 </div>
               </div>
             </div>
+  
+            <div class="carousel-item carousel-otro" data-bs-interval="5000">
+              <img src="multimedia/image/banner-2.jpg" alt="banner 2 la casa de las llantas">
+              <div class="container">
+                <div class="carousel-caption text-start carousel-texto">
+                  <h1>taller integral <br> de  Chapa y pintura</h1>
+                  <h4>Reparacion de bollos por choque y granizo</h4>
+                  <h4>Reparacion y pintado de paragolpes y molduras</h4>
+                  <a class="btn btn-lg btn-primary" href="#chapa-y-pintura">Chapa y Pintura</a>
+                </div>
+              </div>
+            </div>
+  
+            <div class="carousel-item carousel-otro" data-bs-interval="5000">
+              <img src="multimedia/image/banner-3.jpg" alt="banner 3 de la casa de las llantas">
+              <div class="container">
+                <div class="carousel-caption text-start carousel-texto">
+                  <h1>venta automotor</h1>
+                  <h4>contamos con</h4>
+                  <h4>todas las marcas</h4>
+                  <a class="btn btn-lg btn-primary" href="#automotores">Automotores</a>
+                </div>
+              </div>
+            </div>
+  
+            <div class="carousel-item carousel-otro" data-bs-interval="5000">
+              <img src="multimedia/image/banner-4.jpg" alt="banner 4 de la casa de las llantas">
+              <div class="container">
+                <div class="carousel-caption text-start carousel-texto">
+                  <h1>todas las llantas</h1>
+                  <h4>autos </h4><h4>camionetas</h4>
+                  <a class="btn btn-lg btn-primary" href="#llantas">Llantas</a>
+                </div>
+              </div>
+            </div>
+  
+  
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+            <span class="visually-hidden">Next</span>
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+  
+          </button>
+        </div>
+  
+        <section id="automotores" >
+         <h2 class="automotores">automotores</h2>
+         <div class="linea"></div>
+  
+         <ul class="lead txtAutomotores">
+          <li>Estás buscando comprar un vehículo? 🚗</li> 
+          <li>Vení a La Casa de Las Llantas - División Automotores y llevate el que estás buscando!</li>
+          <li>Te ofrecemos multiples beneficios:</li>
+          <li>✅ Excelente atención y asesoramiento personalizado</li>
+          <li>✅ Autos de diferentes marcas</li>
+          <li>✅ Gestoría propia</li>
+          <li>✅ Financiación</li>
+          <li>✅ Permutas</li>
+          <li>Contáctanos <a href="#contacto">aqui</a></li>
+        </ul>  
+  
+         <div class="autos">
+          <!-- Auto 1 -->
+          <div class="card1">
+            <input class="inputauto" type="checkbox" name="" label= "true">
+            <div class="toggle">+</div>
+            <div class="imgBx"><img id="peugeot-308" src="multimedia/autos/peugeot-308/308.gif" alt="Peugeot 308 1.6"> 
+            </div>
+            <div class="details">
+                <h2>PEUGEOT 308</h2>
+                <ul> 
+                  <li>📌 1.6 Active</li>
+                  <li>📌 Modelo 2016</li>
+                  <li>📌 Tanque 60 litros</li>
+                  <li>📌 Baúl 430 litros</li>
+                  <li>📌 Caja Manual 5ta</li>
+                  <li>📌 Impuestos al día</li>
+                  <li>📌 Valor: $2900000</li>
+                  <li>📌 Excelente por donde se mire!</li>
+                  <li>📌 Llévatelo con mínimos requisitos! 👍</li>
+                  <li>📌 Listo para transferir</li>
+                  <li>📌 Contamos con gestoría propia </li>
+                </ul>
+            </div>
+          </div>
+        <!-- Auto 2 -->
+        <div class="card1">
+          <input class="inputauto" type="checkbox" name="">
+          <div class="toggle">+</div>
+          <div class="imgBx"> <img id="gol-trend" src="multimedia/autos/gol-trend/gol.gif" alt="Gol trend 1.6"></div>
+          <div class="details">
+              <h2>VOLKSWAGEN GOL TREND</h2>
+                <ul> 
+                <li>📌 2017 hatchback</li>
+                <li>📌 63975 Km</li>
+                <li>📌 Doble Airbag</li>
+                <li>📌 5 puertas</li>
+                <li>📌 Transmisión manual</li>
+                <li>📌 Motor 1.6</li>
+                <li>📌 Precio $2400000</li>
+                <li>📌 Neumáticos y llantas en excelente estado</li>
+                <li>📌 Impuestos al día</li>
+                <li>📌 Listo para transferir</li>
+                <li>📌 Contamos con gestoría propia </li>
+              </ul>
           </div>
         </div>
-
-        <!-- START MODAL COMPRA -->
-        <div class="modal fade" id="registrarModal" tabindex="-1" aria-labelledby="registrarModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="registrarModalLabel">Regístrate</h5>
-                        <button type="button" value="botoncloseReg" id="botoncloseReg" class="close item-button btn btn-danger" data-dismiss="modal" aria-label="Close"> 
-                        <span aria-hidden="true">&times;</span>
-                        </button>
+      </div>
+      </section>
+  
+      <section id="chapa-y-pintura" class="chapa-y-pintura">
+        <h2 class="chapaypintura">Chapa y Pintura</h2>
+        <div class="lineacyp"></div>
+        <div class="row featurette">
+          <div class="col-md-7 titulochapaypint">
+            <h2 class="featurette-heading titulochapaypinth2">Taller integral de chapa y Pintura</h2>
+            <ul class="lead texto-chapaypintura">
+              <li>Contamos con un equipo calificado para solucionarte todo lo que necesitas:</li>
+              <li>📌Cabina de pintura</li>
+              <li>📌Repintado de piezas</li> 
+              <li>📌Reparación de autos volcados</li>
+              <li>📌Reparación de abollones</li>
+              <li>📌Choques en general</li>
+              <li>📌Paragolpes y puertas desalineadas</li>
+              <li>📌Reparación de rayones de llantas</li>
+              <li>📌Trabajamos con todos los seguros</li>
+              <li>Solicitá turno <a href="#contacto">aqui</a>!</li>
+            </ul>
+          </div>
+          <div class="col-md-5 imagenchapaypint">
+            <img class="featurette-image img-fluid mx-auto" alt="chapa-y-pintura" src="multimedia/pintura/pintura.gif" data-holder-rendered="true">
+          </div>
+        </div>
+      </section>
+  
+      <section id="lubricentro" class="lubricentro">
+        <h2 class="lubricentroh2">Lubricentro</h2>
+        <div class="lineacyp"></div>
+        <div class="row featurette">
+          <div class="col-md-7 tituloLubricentro">
+            <ul class="lead texto-lubricentro">
+              <li>📌Te recordamos que:</li>
+              <li>✅El filtro mantiene el circuito de lubricación protegido de impurezas extendiendo así la vida útil del motor.</li>
+              <li>✅El aceite del motor  mantiene limpia las superficies metálicas y previene la formación de depósitos. Esto ayuda a garantizar una larga vida del motor.</li>
+              <li>✅Solicitá turno <a href="#contacto">aqui</a> para realizar el cambio de Aceite y Filtro  y disfrutá de tu auto!</li>
+            </ul>
+          </div>
+          <div class="col-md-5 imagenLubricentro">
+            <img class="featurette-image img-fluid mx-auto" alt="lubricentro" src="multimedia/lubricentro/lubricentro.jpg" data-holder-rendered="true">
+          </div>
+        </div>
+      </section>
+  
+      <section id="tallermecanico" class="tallermecanico">
+        <h2 class="tallermecanicoh2">Taller Mecanico</h2>
+        <div class="lineacyp"></div>
+        <div class="row featurette">
+          <div class="col-md-7 titulotallermecanico">
+            <ul class="lead texto-tallermecanico">
+              <li>🚗¿Estás buscando un mecánico de confianza?</li> 
+              <li>🚗Entonces trae tu auto y déjalo en manos de un equipo de profesionales orientados a brindarte el mejor servicio.</li>
+              <li>🚗Verificamos, reparamos o sustituimos todas las partes del tren delantero que lo componen (rótula, bujes, extremos, homocinética, semieje, fuelle, etc).</li>
+              <li>🚗Sentís incómodas vibraciones durante la conducción de tu auto?</li>
+              <li>🚗Es hora de realizar una alineación! </li>
+              <li>🚗Contamos con un equipo especializado para dejar tu auto en perfecta condiciones!</li>
+              <li>🚗No lo dudes más! </li>
+              <li>🚗¡Solicitá tu turno <a href="#contacto">aqui</a>!</li>
+            </ul>
+          </div>
+          <div class="col-md-5 imagentallermecanico">
+            <img class="featurette-image img-fluid mx-auto" alt="taller mecanico" src="multimedia/tallermecanico/tallermecanico.gif" data-holder-rendered="true">
+          </div>
+        </div>
+      </section>
+  
+      <section id="llantas" class="llantas">
+        <h2 class="llantasp">llantas</h2>
+        <div class="lineallanta"></div>
+        <div class="row featurette espaciorepllanta">
+          <div class="col-md-7 titulorepllantas">
+            <h2 id="ReparacionDeLlantas" class="featurette-heading titulorepllantash2">Reparacion de llantas</h2>
+            <ul class="lead texto-repllanta">
+              <li>Pensaste que tu llanta no servía más?</li> 
+              <li>En La Casa de Las Llantas te la reparamos!!!</li>
+              <li>Nuestro gran equipo te repara todas las llantas que te imagines!</li>
+              <li>Realizamos reparación de:</li>
+              <li>🚗  Auto</li>
+              <li>🛵  Moto</li>
+              <li>🚙  Camioneta</li>
+              <li>🚛  Camión</li>
+              <li>🚕  Cuatriciclo</li>
+              <li>🚜  Máquinas agrícolas</li>
+              <li>🚜  Tractor</li>
+              <li>Queres asesoramiento? Contactanos <a href="#contacto">aqui</a></li>
+            </ul>
+          </div>
+          <div class="col-md-5 imagenrepllantas">
+            <img class="featurette-image img-fluid mx-auto" alt="reparacion de llantas" src="multimedia/llantas/reparacionllantas.gif" data-holder-rendered="true">
+          </div>
+        </div>
+      </div>
+      </section>
+      
+  <section class="mb-4" id="contacto">
+    <h2 class="contactop">Formulario de Contacto</h2>
+    <div class="lineacontacto"></div>
+  
+    <h2 class="h2-responsive text-center">Consultanos</h2>
+    <h2 class="text-center texto">De Lunes a Viernes de 8 a 12hs y de 15 a 20hs <br> Los Sabados de 8 a 12hs</h2>
+  
+    <div>
+        <div class="contact">
+            <form id="contact-form" name="contact-form" action="" method="POST">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="md-form mb-0">
+                            <input type="text" id="name" name="name" class="form-control">
+                            <label for="name">Nombre</label>
+                        </div>
                     </div>
-                    <div class="modal-body">
-                        <form>
-                            <div class="mail1 form-outline mb-4 mt-4 col-10">
-                                <input type="email" id="formMail" class="form-control" />
-                                <label class="form-label" for="form2Example1">Email</label>
-                            </div>
-                            <div class="contr1 form-outline mb-4 col-10">
-                                <input type="password" id="formPass1" class="form-control" />
-                                <label class="form-label" for="form2Example2">Contraseña</label>
-                            </div>
-                            <div class="contr1 form-outline mb-4 col-10">
-                                <input type="password" id="formPass2" class="form-control" />
-                                <label class="form-label" for="form2Example2">Validar Contraseña</label>
-                            </div>
-                            <!-- a futuro usar en localstorage o sessionStorage -->
-                            <div class="col d-flex justify-content-center">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="miElementoCheckbox" id="miElementoCheckbox" checked />
-                                    <label class="form-check-label" for="miElementoCheckbox">Recuerdame</label>
-                                </div>
-                            </div>
-                            <button type="button" id="bottonSubmit" class="btn btn-primary">Submit</button>
-                        </form>
+                    <div class="col-md-6">
+                        <div class="md-form mb-0">
+                            <input type="text" id="email" name="email" class="form-control">
+                            <label for="email">Email</label>
+                        </div>
                     </div>
                 </div>
-            </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="md-form mb-0">
+                            <input type="text" id="phone" name="phone" class="form-control">
+                            <label for="phone">Telefono</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="md-form">
+                            <textarea type="text" id="message" name="message" rows="4" class="form-control md-textarea"></textarea>
+                            <label for="message">Mensaje</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center">
+                  <button type="button" value="enviar" id="enviar" class="btn btn-primary enviar">Enviar</button>
+                </div>
+            </form>
         </div>
-
-    </section>
-
-    <!-- START FOOTER -->
-    <footer class="container">
-        <div><a href="#" class="flecha"><i class="bi bi-arrow-up-circle-fill flecha1"></i></a></div>
-        <div class="row">
-        <div class="col-md-3 d-flex justify-content-end">
-          <a class="fab fa-whatsapp d-flex justify-content-center"  href="https://api.whatsapp.com/send?phone=5493454166220&text=hola,%20me%20interesa%20esto:" target="_blank">
-          </a>
-          <a class="fab fa-facebook d-flex justify-content-center align-items-start" href="https://www.facebook.com/lacasadelasllantasconcordia/" target="_blank">
-          </a>
-          <a class="fab fa-instagram d-flex justify-content-center"  href="https://www.instagram.com/lacasadelasllantas/" target="_blank">
-          </a>
+    </div>
+  
+    
+      <div class="row">
+          <h2 class="text-center ubi">Estamos en:</h2>
+        <div class="contacto__mapa text-center col-md-8">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d902.2547836601474!2d-58.01260617371327!3d-31.373863601085997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95ade821530bf145%3A0x84c1e9b114790fe0!2sLa%20Casa%20de%20Las%20Llantas!5e0!3m2!1ses-419!2sar!4v1653608536154!5m2!1ses-419!2sar" title="la casa de las llantas" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
-        <div class="containerp">
-          <p  class="containerSub">La Casa de las Lantas © 2022 | Marca registrada | Políticas de Privacidad</p>
+        <div class="col-md-4 text-center espacioubi">
+          <ul class="list-unstyled mb-0">
+              <li><i class="fas fa-map-marker-alt fa-2x"></i>
+                 <a href="https://www.google.com/maps?ll=-31.373961,-58.012663&z=17&t=m&hl=es-419&gl=AR&mapclient=embed&cid=9566184030273605600"  target="_blank"><p>Concordia, Entre Rios, Argentina</p></a>
+              </li>
+              <li><i class="fas fa-phone mt-4 fa-2x"></i>
+                  <a  href="tel:+5493454214174" target="_blank"><p>3454166220</p></a>
+              </li>
+              <li><i class="fas fa-envelope mt-4 fa-2x"></i>
+                 <a href="contacto@lacasadelasllantas.com" target="_blank"><p>contacto@lacasadelasllantas.com</p></a>
+              </li>
+          </ul>
         </div>
-      </footer>
-    <!-- END FOOTER -->
+      </div> 
+  </section>
+  </main>
 
-    <!-- SCRIPTS -->
+  <footer class="container">
+    <div class="flecha"><a href="#" ><i class="bi bi-arrow-up-circle-fill flecha1"></i></a></div>
+    <div class="row containerp">
+    <div class="col-md-3 d-flex justify-content-end ">
+      <a class="fab fa-whatsapp d-flex justify-content-center whatsapp"  href="https://api.whatsapp.com/send?phone=5493454166220&text=hola,%20me%20interesa%20esto:" target="_blank">
+      </a>
+      <a class="fab fa-facebook d-flex justify-content-center align-items-start facebook" href="https://www.facebook.com/lacasadelasllantasconcordia/" target="_blank">
+      </a>
+      <a class="fab fa-instagram d-flex justify-content-center instagram"  href="https://www.instagram.com/lacasadelasllantas/" target="_blank">
+      </a>
+
+    </div>
+    <div >
+      <p  class="containerSub">La Casa de las Lantas © 2022 | Marca registrada | Políticas de Privacidad</p>
+    </div>
+  </footer>
+
+    <!--JavaScript-->
+
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/5.0.0/mdb.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./javascript/enviar.js"></script>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
 
-    <script src="./javascript/tienda.js"></script>
-    <script src="./javascript/registro.js"></script>
   </body>
-
-</html>
+</html>    

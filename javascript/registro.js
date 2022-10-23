@@ -5,6 +5,7 @@ constructor(mail, password){
     this.password = password;
     }
 }
+
 function modalRegisterForm() {
   hideModal('#modalLoginForm');
   $('#registrarModal').modal('show');
@@ -17,10 +18,19 @@ function modalRegisterSesion() {
   let emailReg=document.getElementById("formMail").value;
   let passwordReg1=document.getElementById("formPass1").value;
   let passwordReg2=document.getElementById("formPass2").value;
-  let re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    if(!re.test(emailReg)) {
+  let emaili = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  let paswor = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
+  if(!emaili.test(emailReg)) {
       Swal.fire({icon: 'warning', title: 'Ingrese un Email valido'})
       return false;
+    }
+    else if (!paswor.test(passwordReg1)) {
+      Swal.fire({
+        icon: 'warning',
+        title: 'Ingrese un Password valido',
+        text: 'Mínimo ocho caracteres, al menos una letra mayúscula, una letra minúscula y un número',
+      })
+        return false;
     }
     else{
       if (passwordReg1 ==="" || passwordReg1 === null){
@@ -45,59 +55,58 @@ function modalRegisterSesion() {
         Check();
     }
   }
-  console.log(array);
 }
 
 let cont=0;
 function Login(){ 
-    let mensaje = [];
-    let email=document.getElementById("email").value;
-    let password=document.getElementById("pass").value;
-    try {
-    let nom = array.find(mail => mail.mail);
-
-      if(cont<3){
-        let re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-        if(!re.test(email)){
-            mensaje.push(`Formato de Email invalido`);
-        }
-        else if (nom.mail===email){
-            if(nom.password===password && password!=''){ 
-              cont = 0;
-              hideModal('#modalLoginForm');
-              Swal.fire({
-                position: 'center',
-                icon: 'success',
-                titleText: 'Gracias por su compra',
-                text: 'Pronto recibirá su pedido',
-                timer: 3000});
-              comprarButtonClicked();
-            }
-            else{
-              mensaje.push(`Contraseña incorrecta`);
-              mensaje.push(`le quedan ${2-cont} intentos mas`);
-              cont++;
-            }
-        } 
-        else{
-          mensaje.push(`Email incorrecto`);
-          mensaje.push(`le quedan ${2-cont} intentos mas`);
-          cont++;
-        }
+  let mensaje = [];
+  let email=document.getElementById("email").value;
+  let password=document.getElementById("pass").value;
+  try {
+    let localStorageuser = JSON.parse(localStorage.getItem("User"));
+    let userStorage = localStorageuser.find(mail => mail.mail);
+    if(cont<3){
+      let re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      if(!re.test(email)){
+          mensaje.push(`Formato de Email invalido`);
       }
+      else if ((userStorage.mail)===email){
+          if(userStorage.password===password && password!=''){ 
+            cont = 0;
+            hideModal('#modalLoginForm');
+            Swal.fire({
+              position: 'center',
+              icon: 'success',
+              titleText: 'Gracias por su compra',
+              text: 'Pronto recibirá su pedido',
+              timer: 3000});
+            comprarButtonClicked();
+          }
+          else{
+            mensaje.push(`Contraseña incorrecta`);
+            mensaje.push(`le quedan ${2-cont} intentos mas`);
+            cont++;
+          }
+      } 
       else{
-        mensaje.push(`Usuario bloqueado`);
-      }    
-      input.value <= 0 ? (input.value = 1) : null;
-      mensaje.length > 0 ? Swal.fire({icon: 'warning', title: mensaje.join("\n")}) : null;
-    } 
-    catch(err) {
-        if (email === "" || email === null) 
-            {mensaje.push("El campo Email no puede estar vacio");}
-        if (password === "" || password === null) 
-            {mensaje.push("El campo Clave no puede estar vacio");}
-        mensaje.length > 0 ? Swal.fire({icon: 'warning', title: mensaje.join("\n")}) : null;
+        mensaje.push(`Email incorrecto`);
+        mensaje.push(`le quedan ${2-cont} intentos mas`);
+        cont++;
+      }
     }
+    else{
+      mensaje.push(`Usuario bloqueado`);
+    }    
+    input.value <= 0 ? (input.value = 1) : null;
+    mensaje.length > 0 ? Swal.fire({icon: 'warning', title: mensaje.join("\n")}) : null;
+  } 
+  catch(err) {
+      if (email === "" || email === null) 
+          {mensaje.push("El campo Email no puede estar vacio");}
+      if (password === "" || password === null) 
+          {mensaje.push("El campo Clave no puede estar vacio");}
+      mensaje.length > 0 ? Swal.fire({icon: 'warning', title: mensaje.join("\n")}) : null;
+  }
 }
 
 function hideModal(modal) {
@@ -112,6 +121,9 @@ function modalRegister() {
   }
   catch{Swal.fire({icon: 'warning', title: 'Elija un item a comprar'})}
 }
+function Check(){
+  localStorage.setItem("User", JSON.stringify(array));
+}
 
 let botonEnter = document.getElementById("Entrar");
 botonEnter.addEventListener("click",Login);
@@ -119,3 +131,4 @@ let botonRegistrarte = document.getElementById("Registrarte");
 botonRegistrarte.addEventListener("click",modalRegisterForm);
 const comprarButton = document.getElementById('comprarButton');
 comprarButton.addEventListener('click', modalRegister);
+

@@ -1,8 +1,14 @@
 [
-  { "nombreimpar": "Llantas 18 Vw Vento",    "precioimpar": 55000, "imagenimpar": "multimedia/llantas/llanta-2/llanta2.gif",
-    "nombrepar":   "Llantas 17 Honda Civic", "preciopar":   50000, "imagenpar":   "multimedia/llantas/llanta-1/llanta1.gif", "id": 1 },
-  { "nombreimpar": "Llantas 17 Fiat Bravo",  "precioimpar": 50000, "imagenimpar": "multimedia/llantas/llanta-6/llanta6.gif", 
-    "nombrepar":   "Llantas 16 Ford Fiesta", "preciopar":   47000, "imagenpar":   "multimedia/llantas/llanta-3/llanta3.gif", "id": 2 },
-  { "nombreimpar": "Llantas 16 Peugeot 208", "precioimpar": 48000, "imagenimpar": "multimedia/llantas/llanta-4/llanta4.jpg",
-    "nombrepar":   "Llantas 16 Peugeot 207", "preciopar":   47500, "imagenpar":   "multimedia/llantas/llanta-5/llanta5.jpg", "id": 3  }
+  { "nombreimpar": "Llantas 18 Vw Vento",          "precioimpar": 85000, "imagenimpar": "multimedia/llantas/llanta-2/llanta2.gif",
+    "nombrepar":   "Llantas 18 Honda Civic",       "preciopar":   80000, "imagenpar":   "multimedia/llantas/llanta-1/llanta1.gif", "id": 1 },
+  { "nombreimpar": "Llantas 17 Chevrolet Cruze Rs","precioimpar": 75000, "imagenimpar": "multimedia/llantas/llanta-11/llanta11.jpg",
+    "nombrepar":   "Llantas 17 Citroen C4 Lounge", "preciopar":   70000, "imagenpar":   "multimedia/llantas/llanta-12/llanta12.jpg", "id": 2 },
+  { "nombreimpar": "Llantas 16 Fiat Bravo",        "precioimpar": 58000, "imagenimpar": "multimedia/llantas/llanta-6/llanta6.gif", 
+    "nombrepar":   "Llantas 16 Ford Fiesta",       "preciopar":   57000, "imagenpar":   "multimedia/llantas/llanta-3/llanta3.gif", "id": 3 },
+  { "nombreimpar": "Llantas 16 Peugeot 208",       "precioimpar": 56000, "imagenimpar": "multimedia/llantas/llanta-4/llanta4.jpg",
+    "nombrepar":   "Llantas 16 Peugeot 207",       "preciopar":   54000, "imagenpar":   "multimedia/llantas/llanta-5/llanta5.jpg", "id": 4  },
+  { "nombreimpar": "Llantas 15 Chevrolet Onix Prisma Black","precioimpar": 45000, "imagenimpar": "multimedia/llantas/llanta-9/llanta9.jpg", 
+    "nombrepar":   "Llantas 15 Chevrolet Onix Prisma","preciopar": 42000, "imagenpar":   "multimedia/llantas/llanta-7/llanta7.jpg","id": 5},
+  { "nombreimpar": "Llantas 15 Fiat Cronos",       "precioimpar":   40000, "imagenimpar":  "multimedia/llantas/llanta-8/llanta8.jpg", 
+    "nombrepar":   "Llantas 15 Renault Megane 1",  "preciopar":   39000, "imagenpar":    "multimedia/llantas/llanta-10/llanta10.jpg", "id": 6 }
 ]

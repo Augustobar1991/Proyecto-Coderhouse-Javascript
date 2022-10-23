@@ -132,18 +132,10 @@ function updateShoppingCartTotal() {
   const shoppingCartItems = document.querySelectorAll('.shoppingCartItem');
 
   shoppingCartItems.forEach((shoppingCartItem) => {
-    const shoppingCartItemPriceElement = shoppingCartItem.querySelector(
-      '.shoppingCartItemPrice'
-    );
-    const shoppingCartItemPrice = Number(
-      shoppingCartItemPriceElement.textContent.replace('$', '')
-    );
-    const shoppingCartItemQuantityElement = shoppingCartItem.querySelector(
-      '.shoppingCartItemQuantity'
-    );
-    const shoppingCartItemQuantity = Number(
-      shoppingCartItemQuantityElement.value
-    );
+    const shoppingCartItemPriceElement = shoppingCartItem.querySelector('.shoppingCartItemPrice');
+    const shoppingCartItemPrice = Number(shoppingCartItemPriceElement.textContent.replace('$', ''));
+    const shoppingCartItemQuantityElement = shoppingCartItem.querySelector('.shoppingCartItemQuantity');
+    const shoppingCartItemQuantity = Number(shoppingCartItemQuantityElement.value);
     total = total + shoppingCartItemPrice * shoppingCartItemQuantity;
   });
   shoppingCartTotal.innerHTML = `$${new Intl.NumberFormat().format(total)}`;
@@ -165,3 +157,11 @@ function comprarButtonClicked() {
   shoppingCartItemsContainer.innerHTML = '';
   updateShoppingCartTotal();
 }
+
+
+function cleanUsers(){
+  window.localStorage.clear();
+}
+
+let cleanUser = document.getElementById('cleanUser');
+cleanUser.addEventListener('click',cleanUsers);
